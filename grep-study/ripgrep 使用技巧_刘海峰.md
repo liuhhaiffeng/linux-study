@@ -67,6 +67,8 @@ start_bgworker_errmsg
 
 ## 与grep的比较
 
+rg的结果
+
 ```
 [uxdb@192 ~/uxdb-ng-rac/uxdb-2.0]$ rg -tc "WSAStartup failed:"
 src/backend/main/main.c
@@ -75,6 +77,8 @@ src/backend/main/main.c
 src/bin/ux_dump/parallel.c
 265:			fprintf(stderr, _("%s: WSAStartup failed: %d\n"), progname, err);
 ```
+
+grep -r 的结果
 
 ```
 [uxdb@192 ~/uxdb-ng-rac/uxdb-2.0]$ grep -nr --include="*.c" "WSAStartup failed:"
@@ -86,6 +90,23 @@ rg -tc "WSAStartup failed:"
 grep -nr --include="*.c" "WSAStartup failed:"
 
 可以看出, rg的输入更加简洁一些
+
+## 快速打开目标所在文件并跳转到目标行
+
+如上述查找结果如下:
+
+```
+src/backend/main/main.c
+316:			write_stderr("%s: WSAStartup failed: %d\n",
+```
+
+使用 
+1) vim  文件路径  +/line
+或
+2) vim  文件路径 +/pattern
+
+vim  src/backend/main/main.c +316
+vim src/backend/main/main.c +/"WSAStartup failed"
 
 ## 最大优势
 
