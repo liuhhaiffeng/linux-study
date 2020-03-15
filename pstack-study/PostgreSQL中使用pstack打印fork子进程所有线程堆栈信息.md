@@ -1,4 +1,4 @@
-# PostgreSQL中使用pstack打印fork子进场所有线程堆栈信息
+# PostgreSQL中使用pstack打印fork子进程所有线程堆栈信息
 
 PostgreSQL数据库在并行查询中, 出现如下"stack depth limit exceeded"的错误, 因此想使用pstack来打印其堆栈信息, 依次来排查错误.
 
